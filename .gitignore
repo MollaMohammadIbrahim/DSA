@@ -1,1 +1,6 @@
-.exe
+# Ignore all .exe files
+*.exe
+
+# Ignore all object files (common extensions)
+*.o
+*.obj
