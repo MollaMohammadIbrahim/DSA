@@ -12,7 +12,7 @@
 
 ## Insertion
 
-'''cpp
+```
 void append(int data){
 
     //appending at the beginning the list
@@ -40,4 +40,4 @@ void append(int data){
     }
 
 }
-'''
+```
