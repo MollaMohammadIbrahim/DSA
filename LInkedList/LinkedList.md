@@ -11,7 +11,8 @@
 5. **Delete** − Deletes an element using the given key
 
 ## Insertion
-'''
+
+'''cpp
 void append(int data){
 
     //appending at the beginning the list
