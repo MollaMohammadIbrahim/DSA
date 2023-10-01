@@ -11,4 +11,32 @@
 5. **Delete** − Deletes an element using the given key
 
 ## Insertion
-1. 
+'''
+void append(int data){
+
+    //appending at the beginning the list
+    if( root == NULL ){
+        root = new Node();
+        root->data = data;
+        root->next = NULL;
+    }
+
+    //appending at the end of the list
+    else{
+        Node *curr_node = root;
+        // searching for the last node
+        while(curr_node -> next != NULL){
+            curr_node = curr_node -> next;
+        }
+
+        // now create a new node
+        Node *node = new Node();
+        node->data = data;
+        node->next = NULL;
+
+        // add the node to the list -> add it after the current node
+        curr_node -> next = node;
+    }
+
+}
+'''
