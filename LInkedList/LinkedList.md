@@ -41,3 +41,18 @@ void append(int data){
 
 }
 ```
+#  Finding Middle of the linked list using first and slow pointer
+
+```
+Node* findMiddle(Node* head) {
+    Node* slow = head;
+    Node* fast = head;
+
+    while (fast != nullptr && fast->next != nullptr) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    return slow;
+}
+```
