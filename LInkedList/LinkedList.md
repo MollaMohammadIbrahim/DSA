@@ -56,3 +56,18 @@ Node* findMiddle(Node* head) {
     return slow;
 }
 ```
+# Reversing The Link list
+```
+ListNode* reverseList(ListNode* head) {
+       ListNode *curr=head, *prev = NULL, *nxt, *temp;
+
+       while(curr!=NULL){
+           temp = curr->next;
+           curr->next = prev;
+           prev = curr;
+           curr = temp;
+       }
+       curr = prev; // It prevents some unwanted runtime error
+       return prev;
+    }
+```
