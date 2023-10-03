@@ -30,7 +30,7 @@ public:
         while(fast != nullptr and fast->next != nullptr){
             fast = fast->next->next;
             slow = slow->next;
-        }
+        }..
         if(fast != nullptr and slow != head) slow = slow->next;
         return slow;
     }
