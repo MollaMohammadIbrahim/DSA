@@ -6,7 +6,7 @@ string reverse_string(string s){
     return reverse_string(s.substr(1,s.size()-1))+s[0];
 }
 
-int main(){
+int main(){ 
     string s;
     cin>>s;
     string rs = reverse_string(s);
