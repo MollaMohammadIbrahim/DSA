@@ -4,3 +4,5 @@
 # Ignore all object files (common extensions)
 *.o
 *.obj
+*.exe
+*.vscode
