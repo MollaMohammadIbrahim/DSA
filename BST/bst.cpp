@@ -56,30 +56,41 @@ TreeNode* findNode(TreeNode* root, int value) {
     }
 
 }
-void deleteNode (TreeNode *root, int value){
-    if(root == NULL)return;
-    root = findNode(root, value);
+TreeNode* deleteNode (TreeNode *root, int value){
+    if(root == NULL)return root;
+    if(value <root->data){
+        root -> left = deleteNode(root->left, value);
+    }
+    else if (value > root->data){
+        root->right = deleteNode(root->right, value);
+    }
+    else if (root -> data == value){
+        // Case 1: Node has no child
+        if(root -> left == nullptr and root -> right == nullptr){
+            return nullptr;
+        }
 
-    // case 1:no childe / leaf node
-    if(root->right == nullptr and root-> left == nullptr){
-        delete(root);
-        return;
-    }
+   
+        // Case 2: Node has one child
+        else if(root -> right == nullptr){
+            return root -> left;
+        }
+        else if (root -> left == nullptr){
+            return root -> right;
+        }
+        // Case 3: Node has two children
+        TreeNode *inorderSuccessor = root->right;
+        while(inorderSuccessor->left != nullptr){
+            inorderSuccessor = inorderSuccessor->left;
+        }
+        root->data = inorderSuccessor->data;
+      
+        root->right = deleteNode(root->right, inorderSuccessor->data);
 
-    // case 2: node has no children
-    if(root->right == nullptr){
-        root->data = root->left->data;
-        delete(root->left);
-        return;
     }
-    if(root->left == nullptr){
-        root->data = root->right->data;
-        delete(root->right);
-        return;
-    }
-    // case 3: parent node / node has two children
-    
+    return root;
 }
+
 
 
 
@@ -110,7 +121,9 @@ int main(){
     
     printInorder(root);
     cout<<endl;
+    deleteNode(root,108);
+    printInorder(root);
+    cout<<endl;
 
-    cout<<findNode(root, 120)->data<<endl;
     
 }
