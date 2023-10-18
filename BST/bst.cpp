@@ -121,7 +121,7 @@ int main(){
     
     printInorder(root);
     cout<<endl;
-    deleteNode(root,108);
+    root= deleteNode(root,2);
     printInorder(root);
     cout<<endl;
 
